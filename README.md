@@ -31,3 +31,63 @@ modification information across diverse human tissues and cell types.
 This repository follows an API-client release pattern: researchers can inspect and
 reuse the calling interface while model execution remains behind a separately
 operated service. API access is currently controlled; see [Model access](MODEL_ACCESS.md).
+
+### Available tasks
+
+| Task | Python API | Command line |
+|---|---|---|
+| Gene-expression prediction | `client.predict_expression(...)` | `epic-expression-predict` |
+| Epigenetic perturbation | `client.simulate_perturbation(...)` | `epic-perturbation` |
+
+## Quick start
+
+### 1. Install
+
+EpiC requires Python 3.10 or newer.
+
+```bash
+git clone https://github.com/MeisongShi/EpiC.git
+cd EpiC
+python -m venv .venv
+```
+
+Activate the environment:
+
+```bash
+# Linux or macOS
+source .venv/bin/activate
+
+# Windows PowerShell
+.venv\Scripts\Activate.ps1
+```
+
+Then install the client:
+
+```bash
+python -m pip install --upgrade pip
+python -m pip install -e .
+```
+
+### 2. Configure API access
+
+Request access as described in [MODEL_ACCESS.md](MODEL_ACCESS.md), then set the two
+credentials supplied by the EpiC team:
+
+> The hosted EpiC inference API is not publicly available yet.
+> API access instructions will be announced after the required intellectual
+> property and security reviews are completed.
+
+```bash
+# Linux or macOS
+export EPIC_API_URL="replace-with-EPIC-API-URL"
+export EPIC_API_KEY="replace-with-your-key"
+```
+
+```powershell
+# Windows PowerShell
+$env:EPIC_API_URL = "replace-with-EPIC-API-URL"
+$env:EPIC_API_KEY = "replace-with-your-key"
+```
+
+Never commit an API key. A local configuration file may hold the URL and timeout,
+but not the key; see [`configs/client.example.json`](configs/client.example.json).
