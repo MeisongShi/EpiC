@@ -1,4 +1,4 @@
-# EpiC API
+# Decoding gene regulation and simulating epigenetic perturbation across cell types with EpiC
 
 <p align="center">
   <img src="assets/epic-banner.svg" width="100%" alt="EpiC — multimodal gene regulation modeling">
