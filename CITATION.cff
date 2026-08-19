@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use EpiC, please cite the accompanying manuscript."
+title: "EpiC public API client"
+type: software
+version: 0.1.0
+date-released: 2026-08-19
+authors:
+  - name: "EpiC authors"
+preferred-citation:
+  type: article
+  title: "Decoding gene regulation and simulating epigenetic perturbation across cell types with EpiC"
+  authors:
+    - name: "EpiC authors"
+  year: 2026
+  notes: "Manuscript submitted; replace with final bibliographic metadata after publication."
