@@ -1,0 +1,6 @@
+{
+  "api_url": "replace-with-EPIC-API-URL",
+  "timeout_seconds": 120,
+  "verify_tls": true
+}
+
