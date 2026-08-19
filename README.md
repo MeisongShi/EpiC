@@ -112,5 +112,51 @@ epic-perturbation \
   --output perturbation.json
 ```
 
+### 5. Validate a command without sending data
+
+Add `--dry-run` to either command. The client validates the arguments and prints the
+request metadata without contacting a service or reading an API key.
+
+```bash
+epic-expression-predict \
+  --cellline-name CELL_LINE \
+  --gene-name GENE_NAME \
+  --model-name MODEL_NAME \
+  --dry-run
+```
+
+## Python API
+
+```python
+from epic_client import EpiCClient, ExpressionRequest
+
+client = EpiCClient.from_env()
+result = client.predict_expression(
+    ExpressionRequest(
+        cellline_name="CELL_LINE",
+        gene_name="GENE_NAME",
+        model_name="MODEL_NAME",
+    )
+)
+print(result)
+```
+
+See [Python examples](examples/basic_usage.py) and the [API reference](docs/API.md).
+
 The underscore-style arguments used by the original script are also supported.
 See [`examples/perturbation.sh`](examples/perturbation.sh) for the full command.
+
+## What is—and is not—released
+
+| Included here | Not included here |
+|---|---|
+| Python API client | Neural-network architecture |
+| Stable command-line wrappers | Training and preprocessing code |
+| Request schemas and local validation | Model weights and checkpoints |
+| HTTP transport abstraction | Training/evaluation databases |
+| Synthetic, network-free tests | Downstream-task implementation |
+| Model card and interface docs | Private inference server |
+
+The documented inputs are an interface contract, not a description of internal
+model tensors or processing. Scientific definitions that are not yet cleared for
+public release are explicitly marked in [`docs/INPUT_OUTPUT_SPEC.md`](docs/INPUT_OUTPUT_SPEC.md).
