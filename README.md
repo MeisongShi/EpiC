@@ -91,3 +91,26 @@ $env:EPIC_API_KEY = "replace-with-your-key"
 
 Never commit an API key. A local configuration file may hold the URL and timeout,
 but not the key; see [`configs/client.example.json`](configs/client.example.json).
+
+### 3. Predict gene expression
+
+```bash
+epic-expression-predict \
+  --cellline-name CELL_LINE \
+  --gene-name GENE_NAME \
+  --model-name MODEL_NAME \
+  --output expression.json
+```
+
+### 4. Simulate an epigenetic perturbation
+
+```bash
+epic-perturbation \
+  --gene-name GENE_NAME \
+  --cellline CELL_LINE \
+  --model-name MODEL_NAME \
+  --output perturbation.json
+```
+
+The underscore-style arguments used by the original script are also supported.
+See [`examples/perturbation.sh`](examples/perturbation.sh) for the full command.
