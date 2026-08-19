@@ -6,7 +6,6 @@
 
 <p align="center">
   <a href="https://www.python.org/"><img alt="Python 3.10+" src="https://img.shields.io/badge/python-3.10%2B-3776AB"></a>
-  <a href="LICENSE"><img alt="License: BSD-3-Clause" src="https://img.shields.io/badge/client%20license-BSD--3--Clause-6f42c1"></a>
   <a href="MODEL_ACCESS.md"><img alt="Model access" src="https://img.shields.io/badge/model%20access-controlled-f59e0b"></a>
 </p>
 
@@ -160,3 +159,51 @@ See [`examples/perturbation.sh`](examples/perturbation.sh) for the full command.
 The documented inputs are an interface contract, not a description of internal
 model tensors or processing. Scientific definitions that are not yet cleared for
 public release are explicitly marked in [`docs/INPUT_OUTPUT_SPEC.md`](docs/INPUT_OUTPUT_SPEC.md).
+
+## Repository layout
+
+```text
+EpiC/
+├── src/epic_client/               # public Python client
+├── examples/                      # runnable CLI and Python examples
+├── tests/                         # synthetic, network-free tests
+├── docs/                          # API and input/output documentation
+├── scripts/check_public_release.py# leak-prevention scanner
+├── MODEL_CARD.md                  # capabilities, scope, limitations
+└── MODEL_ACCESS.md                # how to request model/API access
+```
+
+## Development
+
+```bash
+python -m pip install -e ".[dev]"
+python -m pytest
+ruff check .
+python scripts/check_public_release.py
+python -m build
+```
+
+Pull requests must pass tests and the public-release scanner. The scanner rejects
+common model checkpoint formats, private-data directories, credentials, and likely
+training or architecture files.
+
+## Citation
+
+If EpiC supports your work, please cite the accompanying manuscript. Bibliographic
+metadata will be updated after publication; see [`CITATION.cff`](CITATION.cff).
+
+```bibtex
+@article{epic_pending,
+  title   = {Decoding gene regulation and simulating epigenetic perturbation
+             across cell types with EpiC},
+  author  = {EpiC authors},
+  journal = {Manuscript submitted},
+  year    = {2026}
+}
+```
+
+## Responsible use and limitations
+
+EpiC outputs are computational predictions intended for research. They are not
+clinical diagnoses and should not be used as the sole basis for medical, safety-
+critical, or therapeutic decisions. See [MODEL_CARD.md](MODEL_CARD.md).
