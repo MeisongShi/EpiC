@@ -207,3 +207,8 @@ metadata will be updated after publication; see [`CITATION.cff`](CITATION.cff).
 EpiC outputs are computational predictions intended for research. They are not
 clinical diagnoses and should not be used as the sole basis for medical, safety-
 critical, or therapeutic decisions. See [MODEL_CARD.md](MODEL_CARD.md).
+
+## Contact
+
+Please use GitHub Issues for public client bugs. Security concerns and access
+requests should follow [SECURITY.md](SECURITY.md) and [MODEL_ACCESS.md](MODEL_ACCESS.md).
